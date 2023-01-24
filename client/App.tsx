@@ -33,7 +33,7 @@ const App = () => {
         Submit
       </button>
     </div>
-  ): (<Category />)
+  ): (<Category name={name} />)
   }
 
 export default App

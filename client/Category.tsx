@@ -1,12 +1,14 @@
 import React, {useState} from 'react'
 import Question from './Question'
 
-const Category = () => {
+type CategoryProps = {
+  name: string;
+}
+const Category = ({name}: CategoryProps) => {
   const [category, setCategory] = useState('')
 
   const selected = ({currentTarget:{id}}: React.MouseEvent) => {
     setCategory(id)
-    console.log(id)
   }
 
   return !category? (
@@ -21,7 +23,7 @@ const Category = () => {
         </div>
       </div>
     </div>
-  ):(<Question category={category} />)
+  ):(<Question name={name} category={category} />)
 };
 
 export default Category
