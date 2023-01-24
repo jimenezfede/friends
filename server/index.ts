@@ -1,7 +1,6 @@
-const path = require('path');
-const axios = require('axios')
-const express = require('express');
-const {Questions, Users} = require('./db')
+import path from 'path'
+import express, {Request, Response} from 'express'
+const {Users} = require('./db')
 const Dev = require('../ds');
 
 const port = 4000;
@@ -17,7 +16,7 @@ app.use(express.static(distPath)); // Statically serve up client directory
 app.use(Dev()); // Dev middleware - do not move
 
 // get users
-app.get('/api/users', (req, res) => {
+app.get('/api/users', (req: Request, res: Response) => {
   Users.find()
     .then(() => res.sendStatus(200))
     .catch(() => res.sendStatus(404))
@@ -27,15 +26,15 @@ app.get('/api/users', (req, res) => {
 app.post('/api/users', (req, res) => {
   const {body} = req;
   Users.create(body)
-    .then(data => res.status(201).json(data))
+    .then((data: any) => res.status(201).json(data))
     .catch(() => res.sendStatus(500))
 })
 
 // update score
 app.put('/api/users/:_id', (req, res) => {
-  const {params: {id}, body: {score}} = req
-  Users.updateOne({id}, {score})
-    .then((result) => {
+  const {params: {_id}, body: {score}} = req
+  Users.updateOne({_id}, {score})
+    .then((result: any) => {
       console.log(result)
       res.sendStatus(200)
     })

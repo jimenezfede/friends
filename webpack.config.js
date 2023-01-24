@@ -14,18 +14,23 @@ module.exports = {
     excludeModules: /node_modules/,
   },
   entry: {
-    app: path.resolve(SRC_DIR, 'index.jsx'),
+    app: path.resolve(SRC_DIR, 'index.tsx'),
   },
   output: {
     path: DIST_DIR,
     filename: '[name].bundle.js',
   },
   resolve: {
-    extensions: ['.js', '.jsx', '.json'],
+    extensions: ['.ts', '.tsx', '.js', '.jsx', '.json'],
   },
 
   module: {
     rules: [
+      {
+        test: /\.(ts|tsx)$/,
+        use: 'ts-loader',
+        exclude: /node_modules/
+      },
       {
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
@@ -53,7 +58,6 @@ module.exports = {
     // generates an html file from template
     new HtmlWebpackPlugin({
       template: path.resolve(SRC_DIR, 'index.ejs'),
-      favicon: path.resolve(SRC_DIR, 'favicon.ico'),
     }),
   ],
 };

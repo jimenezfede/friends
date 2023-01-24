@@ -50,7 +50,7 @@ const webpackConfig = {
   devtool: 'eval',
   entry: {
     app: [
-      path.resolve(SRC_DIR, 'index.jsx'),
+      path.resolve(SRC_DIR, 'index.tsx'),
       'webpack-hot-middleware/client?path=/__live_reload&timeout=100&reload=true',
     ],
   },
@@ -59,7 +59,7 @@ const webpackConfig = {
     filename: '[name].bundle.js',
   },
   resolve: {
-    extensions: ['.js', '.jsx', '.json'],
+    extensions: ['.ts', '.tsx', '.js', '.jsx', '.json'],
   },
   devServer: {
     contentBase: DIST_DIR,
@@ -68,6 +68,11 @@ const webpackConfig = {
   },
   module: {
     rules: [
+      {
+        test: /\.(ts|tsx)$/,
+        exclude: /node_modules/,
+        use: 'ts-loader'
+      },
       {
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,

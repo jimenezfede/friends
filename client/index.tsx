@@ -4,7 +4,7 @@ import App from './App'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min';
 
-const appRoot = document.getElementById('root')
+const appRoot: HTMLElement | null = document.getElementById('root')!
 
 const root = createRoot(appRoot)
 
