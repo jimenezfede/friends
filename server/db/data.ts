@@ -488,96 +488,115 @@ module.exports = [
   {
     category: 'ANCIENT HISTORY',
     question: `What toy was glued to top of the Geller Cup?`,
-    answer: 'A troll doll'
+    answer: 'A troll doll',
+    wrong: ['A barbie doll', 'G.I. Joe']
   },
   {
     category: 'ANCIENT HISTORY',
     question: `Because Ross and Rachel's break up reminds him of his parents' divorce, what does Chandler start doing?`,
-    answer: 'Smoking'
+    answer: 'Smoking',
+    wrong: ['Telling jokes', 'drinking']
   },
   {
     category: 'ANCIENT HISTORY',
     question: `What did Ross wear the night he was going to take Rachel to the prom?`,
-    answer: `His dad's tuxedo`
+    answer: `His dad's tuxedo`,
+    wrong: ['Leather pants', `All Chandler's clothes`]
   },
   {
     category: 'ANCIENT HISTORY',
     question: `What was the coffee house before it became a coffee house?`,
-    answer: 'A bar'
+    answer: 'A bar',
+    wrong: ['A comedy club', 'A strip club']
   },
   {
     category: 'ANCIENT HISTORY',
     question: `What happened the first time Monica tried to ride a bike?`,
-    answer: 'The bike bent'
+    answer: 'The bike bent',
+    wrong: ['She broke a leg', 'She lost weight']
   },
   {
     category: 'ANCIENT HISTORY',
     question: `What disturbing footage was at the end of the prom video tape?`,
-    answer: `Monica and Ross's parents fooling around`
+    answer: `Monica and Ross's parents fooling around`,
+    wrong: ['Ross and Rachel fooling around', 'Chandler singing']
   },
   {
     category: 'ANCIENT HISTORY',
     question: `What part of her anatomy has Rachel had plastic surgery on?`,
-    answer: 'Her nose'
+    answer: 'Her nose',
+    wrong: ['Her breasts', 'Her butt']
   },
   {
     category: 'ANCIENT HISTORY',
     question: `When she was a teenager, who told Monica she should be a chef?`,
-    answer: 'Chandler'
+    answer: 'Chandler',
+    wrong: ['Ross', 'Rachel']
   },
   {
     category: 'ANCIENT HISTORY',
     question: `Monica's prom date saw what movie 317 times?`,
-    answer: 'Star Wars'
+    answer: 'Star Wars',
+    wrong: ['Indiana Jones', 'Titanic']
   },
   {
     category: 'ANCIENT HISTORY',
     question: `Which of the Friends were college roommates?`,
-    answer: 'Ross and Chandler'
+    answer: 'Ross and Chandler',
+    wrong: ['Monica and Rachel', 'Joey and Phoebe']
   },
   {
     category: 'ANCIENT HISTORY',
     question: `Who did Chandler's dad leave Chandler's mom for?`,
-    answer: 'The house boy'
+    answer: 'The house boy',
+    wrong: ['The pool boy', 'The mail man']
   },
   {
     category: 'ANCIENT HISTORY',
     question: `What was Monica's nickname on her high school field hockey team?`,
-    answer: 'Big Fat Goalie'
+    answer: 'Big Fat Goalie',
+    wrong: ['Bit Fattie', 'Fluffy']
   },
   {
     category: 'ANCIENT HISTORY',
     question: `What song did Ross want to sing to Rachel when he came home from college for Thanksgiving?`,
-    answer: 'Emotional Knapsack'
+    answer: 'Emotional Knapsack',
+    wrong: ['We Will Rock You', 'All I Ever Wanted']
   },
   {
     category: 'ANCIENT HISTORY',
     question: `What children's show sent Phoebe a keychain after her mother committed suicide?`,
-    anwer: 'Sesame Street'
+    anwer: 'Sesame Street',
+    wrong: ['Barnie', `Blue's Clues`]
   },
   {
     category: 'ANCIENT HISTORY',
     question: `Name Rachel's beloved childhood dog`,
-    answer: 'LaPooh'
+    answer: 'LaPooh',
+    wrong: ['Chi Chi', 'Snoopy']
   },
   {
     category: 'ANCIENT HISTORY',
     question: `Which Friend once got their head stuck in a raw turkey?`,
-    answer: 'Joey'
+    answer: 'Joey',
+    wrong: ['Chandler', 'Ross']
   },
   {
     category: 'ANCIENT HISTORY',
     question: `How did Rachel's beloved childhood dog bite the dust?`,
-    answer: `Hit by an ice cream truck and dragged 19 blocks`
+    answer: `Hit by an ice cream truck and dragged 19 blocks`,
+    wrong: ['Phoebe ran over it', 'Heart Worms']
   },
   {
     category: 'ANCIENT HISTORY',
     question: `Which Friend rushed the stage at the Wham concert?`,
-    answer: 'Chandler'
+    answer: 'Chandler',
+    wrong: ['Joey', 'Ross']
   },
   {
     category: 'ANCIENT HISTORY',
     question: `Name one of the two teams Carol played on in college`,
-    answer: 'Golf of LaCrosse'
+    answer: 'Golf of LaCrosse',
+    wrong: ['Volley Ball', 'Soft Ball']
   }
 ]
