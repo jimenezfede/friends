@@ -24,16 +24,16 @@ app.get('/api/users', (req: Request, res: Response) => {
 
 // create user
 app.post('/api/users', (req, res) => {
-  const {body} = req;
-  Users.create(body)
+  const {body: {name, score}} = req;
+  Users.updateOne({name}, {name, score}, {upsert: true})
     .then((data: any) => res.status(201).json(data))
     .catch(() => res.sendStatus(500))
 })
 
 // update score
-app.put('/api/users/:_id', (req, res) => {
-  const {params: {_id}, body: {score}} = req
-  Users.updateOne({_id}, {score})
+app.put('/api/users/:_name', (req, res) => {
+  const {params: {_name}, body: {score}} = req
+  Users.updateOne({_name}, {score})
     .then((result: any) => {
       console.log(result)
       res.sendStatus(200)
