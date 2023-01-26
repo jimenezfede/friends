@@ -48,6 +48,12 @@ module.exports = {
         test: /\.css$/i,
         use: ['style-loader', 'css-loader'],
       },
+      {
+        test: /\.(jpe?g|png|gif)$/,
+        use: {
+          loader: 'file-loader'
+        }
+      }
     ],
   },
   plugins: [

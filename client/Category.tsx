@@ -1,5 +1,7 @@
 import React, {useState} from 'react'
 import Question from './Question'
+import './style.css'
+const Awaiting = require('../assets/awaiting.jpeg').default
 
 type CategoryProps = {
   name: string;
@@ -8,23 +10,25 @@ type CategoryProps = {
 }
 const Category = ({name, score, handleAnswer}: CategoryProps) => {
   const [category, setCategory] = useState('')
+  const [categories, setCategories] = useState(
+    ['PET PEEVES', 'ANCIENT HISTORY', `IT'S ALL RELATIVE`, 'LITERATURE']
+  )
 
   const selected = ({currentTarget:{id}}: React.MouseEvent) => {
     setCategory(id)
   }
 
   return !category? (
-    <div className="container"
-      style={{textAlign: 'center'}}
-    >
+    <div className="category">
+      <img src={Awaiting} width='1450' height='550' />
       <div className='row'>
         <div className="col-sm" >
-          <span>{`${name} your score is: ${score}`}</span>
+          <span><strong>{`${name} your score is: ${score}`}</strong></span>
           <br></br>
           <span className='border-bottom'>Pick a Category</span>
-          <div id='PET PEEVES' onClick={selected}>PET PEEVES</div>
-          <div id='ANCIENT HISTORY' onClick={selected}>ANCIENT HISTORY</div>
-          <div id="IT'S ALL RELATIVE" onClick={selected}>IT'S ALL RELATIVE</div>
+          {categories.map((category: string) => (
+            <ul className='border cursor-pointer' role='button' id={category} onClick={selected} >{category}</ul>
+          ))}
         </div>
       </div>
     </div>

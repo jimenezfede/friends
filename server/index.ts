@@ -34,10 +34,7 @@ app.post('/api/users', (req, res) => {
 app.put('/api/users/:_name', (req, res) => {
   const {params: {_name}, body: {score}} = req
   Users.updateOne({_name}, {score})
-    .then((result: any) => {
-      console.log(result)
-      res.sendStatus(200)
-    })
+    .then((result: any) => res.sendStatus(200))
     .catch(() => res.sendStatus(400))
 })
 

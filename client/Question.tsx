@@ -27,7 +27,9 @@ const Question = ({category, name, score, handleAnswer}: QuestionProps) => {
 
 
   return next? (<Category name={name} score={score} handleAnswer={handleAnswer} />):(
-    <div className='card' style={{textAlign: 'center'}}>
+    <div className='card' 
+    // style={{textAlign: 'center'}}
+    >
       <div>
         {`${name} your score is: ${score}`}
       </div>

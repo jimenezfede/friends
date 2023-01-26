@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import axios from "axios";
 import Category from "./Category";
+import './style.css'
+const Intro = require('../assets/friendsIntro.jpeg').default
 
 const App = () => {
   const [name, setName] = useState("");
@@ -20,15 +22,16 @@ const App = () => {
       .then(() => setScore(score + 1))
       .catch((err) => console.log(`Post score was unsuccessful: ${err}`));
   };
-
   return !name ? (
+    <>
+      <img src={Intro} />
     <div
-      className="card"
-      style={{
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-      }}
+      className="intro"
+      // style={{
+      //   display: "flex",
+      //   justifyContent: "center",
+      //   alignItems: "center",
+      // }}
     >
       <h1>The One With the Apartment Bet</h1>
       <label htmlFor="event-time" className="col-form-label">
@@ -45,6 +48,7 @@ const App = () => {
         Submit
       </button>
     </div>
+    </>
   ) : (
     <Category name={name} score={score} handleAnswer={handleAnswer} />
   );
