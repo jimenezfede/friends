@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import Category from "./Category";
-import './style.css'
+// import './style.css'
 const Intro = require('../assets/friendsIntro.jpeg').default
 
 const App = () => {
@@ -23,32 +23,23 @@ const App = () => {
       .catch((err) => console.log(`Post score was unsuccessful: ${err}`));
   };
   return !name ? (
-    <>
-      <img src={Intro} />
-    <div
-      className="intro"
-      // style={{
-      //   display: "flex",
-      //   justifyContent: "center",
-      //   alignItems: "center",
-      // }}
-    >
+    <div>
+      <img src={Intro} width='1450' height='500' />
+      <div className="intro p-4">
       <h1>The One With the Apartment Bet</h1>
-      <label htmlFor="event-time" className="col-form-label">
-        User Name:
-      </label>
       <input
+        placeholder="Enter Name"
         className="form-control w-25"
         type="text"
         value={value}
         onChange={(e) => setValue(e.target.value)}
         onKeyDown={(e) => (e.key === "Enter" && value ? handleSubmit() : null)}
       />
-      <button type="submit" onClick={handleSubmit}>
+      <button className='m-3' type="submit" onClick={handleSubmit}>
         Submit
       </button>
     </div>
-    </>
+    </div>
   ) : (
     <Category name={name} score={score} handleAnswer={handleAnswer} />
   );

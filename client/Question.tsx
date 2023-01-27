@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 import Category from './Category'
-
+const Intro = require('../assets/friendsIntro.jpeg').default
 const data = require('../server/db/data')
 
 type QuestionProps = {
@@ -22,23 +22,29 @@ const Question = ({category, name, score, handleAnswer}: QuestionProps) => {
     }
       setNext(true)
   }
-
-
-
-
   return next? (<Category name={name} score={score} handleAnswer={handleAnswer} />):(
-    <div className='card' 
-    // style={{textAlign: 'center'}}
+    <div  
+    style={{
+      display: 'flex', 
+      flexDirection: 'column', 
+      justifyContent: 'center', 
+      alignItems: 'center',
+      background: 'black', 
+      color: 'white'
+    }}
     >
-      <div>
-        {`${name} your score is: ${score}`}
-      </div>
-      <div>
-        {question}
-      </div>
+      <img src={Intro} />
+      <h3>{`${name} your score is: ${score}`}</h3>
+      <h3 className='border-bottom'>{question}</h3>
       <div>
         {options.map((option:any, idx:number) => (
-          <ul key={idx} id={option} role='button' onClick={correctAnswer}>{option}</ul>
+          <li 
+          className='border-bottom'
+          key={idx} 
+          id={option} 
+          role='button' 
+          onClick={correctAnswer}
+          >{option}</li>
         ))}
       </div>
     </div>
