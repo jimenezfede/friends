@@ -1,19 +1,22 @@
 import React, { useState } from "react";
 import Question from "./Question";
 const Awaiting = require("../assets/awaiting.jpeg").default;
+const celebrate = require('../assets/celebrating.gif').default
+const nooo = require('../assets/nooo.gif').default
 
 type CategoryProps = {
   name: string;
   score: number;
+  prevScore: number;
   handleAnswer: () => void;
 };
-const Category = ({ name, score, handleAnswer }: CategoryProps) => {
+const Category = ({ name, score, prevScore, handleAnswer }: CategoryProps) => {
   const [category, setCategory] = useState("");
 
   const selected = ({ currentTarget: { id } }: React.MouseEvent) => {
     setCategory(id);
   };
-
+  console.log(prevScore, score)
   return !category ? (
     <div
       className="category-container-fluid"
@@ -26,12 +29,15 @@ const Category = ({ name, score, handleAnswer }: CategoryProps) => {
         color: 'white'
       }}
     >
-      <img src={Awaiting} width="1450" height="500" />
+      <img src={
+        prevScore === score && prevScore !== 0? nooo:
+        prevScore !== score && prevScore !== 0? celebrate: Awaiting
+        } width="1450" height="500" />
       <h3>{`${name} your score is: ${score}`}</h3>
       <h3 className="border-bottom">Pick a Category</h3>
       <div className="container">
         <div className="row row-cols-2">
-          <div 
+          <button 
           className="col border" 
           role='button' 
           id='PET PEEVES' 
@@ -42,8 +48,8 @@ const Category = ({ name, score, handleAnswer }: CategoryProps) => {
             justifyContent: "center",
             alignItems: "center",
           }}
-          >PET PEEVES</div>
-          <div 
+          >PET PEEVES</button>
+          <button 
           className="col border" 
           role='button' 
           id='ANCIENT HISTORY' 
@@ -54,8 +60,8 @@ const Category = ({ name, score, handleAnswer }: CategoryProps) => {
             justifyContent: "center",
             alignItems: "center",
           }}
-          >ANCIENT HISTORY</div>
-          <div 
+          >ANCIENT HISTORY</button>
+          <button 
           className="col border" 
           role='button' 
           id="IT'S ALL RELATIVE" 
@@ -66,8 +72,8 @@ const Category = ({ name, score, handleAnswer }: CategoryProps) => {
             justifyContent: "center",
             alignItems: "center",
           }}
-          >IT'S ALL RELATIVE</div>
-          <div 
+          >IT'S ALL RELATIVE</button>
+          <button 
           className="col border" 
           role='button' 
           id='LITERATURE' 
@@ -78,7 +84,7 @@ const Category = ({ name, score, handleAnswer }: CategoryProps) => {
             justifyContent: "center",
             alignItems: "center",
           }}
-          >LITERATURE</div>
+          >LITERATURE</button>
         </div>
       </div>
     </div>

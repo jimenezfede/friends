@@ -8,6 +8,7 @@ const App = () => {
   const [name, setName] = useState("");
   const [value, setValue] = useState("");
   const [score, setScore] = useState(0);
+  const [prevScore, setPrevScore] = useState(0)
 
   const handleSubmit = () => {
     axios
@@ -41,7 +42,7 @@ const App = () => {
     </div>
     </div>
   ) : (
-    <Category name={name} score={score} handleAnswer={handleAnswer} />
+    <Category name={name} score={score} prevScore={prevScore} handleAnswer={handleAnswer} />
   );
 };
 

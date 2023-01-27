@@ -2,6 +2,8 @@ import React, {useState} from 'react'
 import Category from './Category'
 const Intro = require('../assets/friendsIntro.jpeg').default
 const data = require('../server/db/data')
+const celebrate = require('../assets/celebrating.gif').default
+const nooo = require('../assets/nooo.gif').default
 
 type QuestionProps = {
   category: string;
@@ -12,6 +14,7 @@ type QuestionProps = {
 
 const Question = ({category, name, score, handleAnswer}: QuestionProps) => {
   const [next, setNext] = useState(false)
+  const [prevScore, setPrevScore] = useState(score)
   const questions = data.filter((q: any) => q.category === category)
   const randomQuestion = questions[Math.floor(Math.random() * questions.length)]
   const {question, answer, options} = randomQuestion;
@@ -22,7 +25,7 @@ const Question = ({category, name, score, handleAnswer}: QuestionProps) => {
     }
       setNext(true)
   }
-  return next? (<Category name={name} score={score} handleAnswer={handleAnswer} />):(
+  return next? (<Category name={name} score={score} prevScore={prevScore} handleAnswer={handleAnswer} />):(
     <div  
     style={{
       display: 'flex', 
