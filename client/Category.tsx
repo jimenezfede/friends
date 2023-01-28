@@ -8,16 +8,16 @@ type CategoryProps = {
   name: string;
   score: number;
   prevScore: number;
-  handleAnswer: () => void;
+  correct: string;
+  handleCategory: (id: string) => void;
 };
-const Category = ({ name, score, prevScore, handleAnswer }: CategoryProps) => {
-  const [category, setCategory] = useState("");
+const Category = ({ name, score, prevScore, handleCategory, correct }: CategoryProps) => {
 
   const selected = ({ currentTarget: { id } }: React.MouseEvent) => {
-    setCategory(id);
+    handleCategory(id);
   };
-  console.log(prevScore, score)
-  return !category ? (
+  console.log(!correct)
+  return (
     <div
       className="category-container-fluid"
       style={{
@@ -30,8 +30,12 @@ const Category = ({ name, score, prevScore, handleAnswer }: CategoryProps) => {
       }}
     >
       <img src={
-        prevScore === score && prevScore !== 0? nooo:
-        prevScore !== score && prevScore !== 0? celebrate: Awaiting
+        // prevScore === score && prevScore !== 0? nooo:
+        // prevScore !== score && prevScore !== 0? celebrate: Awaiting
+        correct?
+        ((correct === 'correct')?
+        celebrate: nooo):
+        Awaiting
         } width="1450" height="500" />
       <h3>{`${name} your score is: ${score}`}</h3>
       <h3 className="border-bottom">Pick a Category</h3>
@@ -88,14 +92,7 @@ const Category = ({ name, score, prevScore, handleAnswer }: CategoryProps) => {
         </div>
       </div>
     </div>
-  ) : (
-    <Question
-      name={name}
-      category={category}
-      score={score}
-      handleAnswer={handleAnswer}
-    />
-  );
+  ) 
 };
 
 export default Category;

@@ -10,11 +10,10 @@ type QuestionProps = {
   name: string;
   score: number;
   handleAnswer: () => void;
+  resetCategory: () => void;
 }
 
-const Question = ({category, name, score, handleAnswer}: QuestionProps) => {
-  const [next, setNext] = useState(false)
-  const [prevScore, setPrevScore] = useState(score)
+const Question = ({category, name, score, handleAnswer, resetCategory}: QuestionProps) => {
   const questions = data.filter((q: any) => q.category === category)
   const randomQuestion = questions[Math.floor(Math.random() * questions.length)]
   const {question, answer, options} = randomQuestion;
@@ -22,10 +21,11 @@ const Question = ({category, name, score, handleAnswer}: QuestionProps) => {
   const correctAnswer = ({currentTarget: {id}}: React.MouseEvent) => {
     if (id === answer) {
       handleAnswer()
+    } else {
+      resetCategory()
     }
-      setNext(true)
   }
-  return next? (<Category name={name} score={score} prevScore={prevScore} handleAnswer={handleAnswer} />):(
+  return (
     <div  
     style={{
       display: 'flex', 
