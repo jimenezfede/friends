@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 const Intro = require('../assets/friendsIntro.jpeg').default
 const data = require('../server/db/data')
 
@@ -14,7 +14,22 @@ const Question = ({category, name, score, handleAnswer, resetCategory}: Question
   const questions = data.filter((q: any) => q.category === category)
   const randomQuestion = questions[Math.floor(Math.random() * questions.length)]
   const {question, answer, options} = randomQuestion;
+  const [shuffled, setShuffled] = useState([])
 
+
+  useEffect(() => {
+    shuffleOptions()
+  })
+
+  const shuffleOptions = () => {
+   for (let i = options.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    const temp = options[i];
+    options[i] = options[j];
+    options[j] = temp;
+   }
+   setShuffled(options)
+  }
   const correctAnswer = ({currentTarget: {id}}: React.MouseEvent) => {
     if (id === answer) {
       handleAnswer()
@@ -37,7 +52,7 @@ const Question = ({category, name, score, handleAnswer, resetCategory}: Question
       <h3>{`${name} your score is: ${score}`}</h3>
       <h3 className='border-bottom'>{question}</h3>
       <div>
-        {options.map((option:any, idx:number) => (
+        {shuffled.map((option:any, idx:number) => (
           <li 
           className='border-bottom'
           key={idx} 
