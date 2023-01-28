@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import Question from "./Question";
 const Awaiting = require("../assets/awaiting.jpeg").default;
 const celebrate = require('../assets/celebrating.gif').default
 const nooo = require('../assets/nooo.gif').default
@@ -7,16 +6,14 @@ const nooo = require('../assets/nooo.gif').default
 type CategoryProps = {
   name: string;
   score: number;
-  prevScore: number;
   correct: string;
   handleCategory: (id: string) => void;
 };
-const Category = ({ name, score, prevScore, handleCategory, correct }: CategoryProps) => {
+const Category = ({ name, score, handleCategory, correct }: CategoryProps) => {
 
   const selected = ({ currentTarget: { id } }: React.MouseEvent) => {
     handleCategory(id);
   };
-  console.log(!correct)
   return (
     <div
       className="category-container-fluid"
@@ -29,10 +26,7 @@ const Category = ({ name, score, prevScore, handleCategory, correct }: CategoryP
         color: 'white'
       }}
     >
-      <img src={
-        // prevScore === score && prevScore !== 0? nooo:
-        // prevScore !== score && prevScore !== 0? celebrate: Awaiting
-        correct?
+      <img src={correct?
         ((correct === 'correct')?
         celebrate: nooo):
         Awaiting

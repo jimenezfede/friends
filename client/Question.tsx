@@ -1,9 +1,6 @@
 import React, {useState} from 'react'
-import Category from './Category'
 const Intro = require('../assets/friendsIntro.jpeg').default
 const data = require('../server/db/data')
-const celebrate = require('../assets/celebrating.gif').default
-const nooo = require('../assets/nooo.gif').default
 
 type QuestionProps = {
   category: string;
