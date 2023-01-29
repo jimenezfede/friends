@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react'
 const Intro = require('../assets/friendsIntro.jpeg').default
-const data = require('../server/db/data')
+const data = require('../data')
 
 type QuestionProps = {
   category: string;
@@ -48,7 +48,7 @@ const Question = ({category, name, score, handleAnswer, resetCategory}: Question
       color: 'white'
     }}
     >
-      <img src={Intro} />
+      <img className='introPic' src={Intro} />
       <h3>{`${name} your score is: ${score}`}</h3>
       <h3 className='border-bottom'>{question}</h3>
       <div>

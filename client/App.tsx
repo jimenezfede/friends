@@ -31,7 +31,7 @@ const App = () => {
   };
   return !name ? (
     <div>
-      <img src={Intro} width='1450' height='500' />
+      <img className='introPic' src={Intro} width='1450' height='500' />
       <div className="intro p-4">
       <h1>The One With the Apartment Bet</h1>
       <input

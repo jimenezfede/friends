@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 const Awaiting = require("../assets/awaiting.jpeg").default;
 const celebrate = require('../assets/celebrating.gif').default
 const nooo = require('../assets/nooo.gif').default
@@ -26,7 +26,7 @@ const Category = ({ name, score, handleCategory, correct }: CategoryProps) => {
         color: 'white'
       }}
     >
-      <img src={correct?
+      <img className='categoryPic' src={correct?
         ((correct === 'correct')?
         celebrate: nooo):
         Awaiting
