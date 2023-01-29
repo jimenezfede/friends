@@ -7,9 +7,7 @@ const SRC_DIR = path.resolve(__dirname, 'client');
 const DIST_DIR = path.resolve(__dirname, 'dist');
 
 module.exports = {
-  mode: 'development',
-  watch: true,
-  devtool: 'eval',
+  mode: 'production',
   stats: {
     excludeModules: /node_modules/,
   },
