@@ -1,9 +1,9 @@
-import path from 'path'
-import express, {Request, Response} from 'express'
-const Dev = require('../ds');
+import path from "path";
+import express, { Request, Response } from "express";
+const Dev = require("../ds");
 
-const port = 4000;
-const distPath = path.resolve(__dirname, '..', 'dist');
+const port = 8080;
+const distPath = path.resolve(__dirname, "..", "dist");
 
 const app = express();
 
