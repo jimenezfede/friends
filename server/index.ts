@@ -18,7 +18,7 @@ app.use(Dev()); // Dev middleware - do not move
 app.get("/api/user", (req: Request, res: Response) => {
   User.findOne()
     .then((data: any) => {
-      console.log(data);
+      // console.log(data);
       res.sendStatus(200);
     })
     .catch(() => res.sendStatus(500));
@@ -42,7 +42,7 @@ app.put("/api/user/:id", (req: Request, res: Response) => {
   console.log(id, _id, name, score);
   User.updateOne({ id: _id }, { name, score })
     .then((data: any) => {
-      console.log(data);
+      // console.log(data);
       if (data.modifiedCount) {
         res.sendStatus(200);
       } else {

@@ -1,5 +1,0 @@
-34.222.33.197 {
-  reverse_proxy localhost:8080 {
-  header_down Strict-Transport-Security max-age=31536000;
-  }
-}
